@@ -12,7 +12,7 @@ Real time detection can be use via command prompt or GUI.
 		<th><strong>A USA Real-Time Road Detection</strong></th>
 	</tr>
 	<tr align="center">
-		<td><img src="https://github.com/aiexpert-79/object-detection-yolo/blob/master/doc/detector1.gif"></td>		
+		<td><img src="https://github.com/aiexpert-79/object-detection-yolo/blob/main/doc/detector1.gif"></td>		
 	</tr>
 	<tr align="center">
 		<th><strong>A UK Real-Time Road Detection</strong></th>
