@@ -12,7 +12,7 @@ Real time detection can be use via command prompt or GUI.
 		<th><strong>A USA Real-Time Road Detection</strong></th>
 	</tr>
 	<tr align="center">
-		<td><img src="https://github.com/muhammadshiraz/YOLO-Real-Time-Object-Detection/blob/master/doc/detector1.gif"></td>		
+		<td><img src="https://github.com/aiexpert-79/object-detection-yolo/blob/master/doc/detector1.gif"></td>		
 	</tr>
 	<tr align="center">
 		<th><strong>A UK Real-Time Road Detection</strong></th>
@@ -60,7 +60,7 @@ OpenCV dnn module supports running inference on pre-trained deep learning models
 ## How to use?
 <ol>
   <li>Clone the repository</li>
-  <p><code>git clone https://github.com/muhammadshiraz/YOLO-Real-Time-Object-Detection.git</code></p>
+  <p><code>git clone https://github.com/aiexpert-79/object-detection-yolo.git</code></p>
 </ol>
 <ol start="2">
   <li>Move to the directory</li>
