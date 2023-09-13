@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import time
 
-# Load Yolo
+# Load Yolov3 model
 net = cv2.dnn.readNet("weights/yolov3-tiny.weights", "cfg/yolov3-tiny.cfg")
 classes = []
 with open("coco.names", "r") as f:
