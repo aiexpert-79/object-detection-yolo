@@ -5,7 +5,7 @@ import time
 # Load Yolo
 net = cv2.dnn.readNet("weights/yolov3-tiny.weights", "cfg/yolov3-tiny.cfg")
 classes = []
-with open("coco.names", "r") as f:
+with open("coco.names", "r", encoding='utf-8') as f:
     classes = [line.strip() for line in f.readlines()]
 layer_names = net.getLayerNames()
 output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]

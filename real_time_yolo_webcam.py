@@ -4,7 +4,7 @@ import numpy as np
 # Load YOLOv3
 net = cv2.dnn.readNet("weights/yolov3.weights", "cfg/yolov3.cfg") # pylint: disable=no-member
 classes = []
-with open("coco.names", "r") as f:
+with open("coco.names", "r", encoding='utf-8') as f:
     classes = [line.strip() for line in f.readlines()]
 layer_names = net.getLayerNames()
 output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]

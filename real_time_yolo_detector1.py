@@ -1,12 +1,17 @@
-import cv2
-import numpy as np
+'''
+
+This module contains functions for performing object detection operations.
+
+'''
 import time
+import numpy as np
+import cv2
 
 # Load Yolov3 model
 net = cv2.dnn.readNet("weights/yolov3-tiny.weights", "cfg/yolov3-tiny.cfg")
 
 classes = []
-with open("coco.names", "r") as f:
+with open("coco.names", "r", encoding='utf-8') as f:
     classes = [line.strip() for line in f.readlines()]
 layer_names = net.getLayerNames()
 output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
@@ -18,10 +23,10 @@ print(cap)
 
 font = cv2.FONT_HERSHEY_PLAIN
 starting_time = time.time()
-frame_id = 0
+FRAME_ID = 0
 while True:
     _, frame = cap.read()
-    frame_id += 1
+    FRAME_ID += 1
     height, width, channels = frame.shape
 
     # preprocessing and Detecting objects real-time
@@ -48,25 +53,25 @@ while True:
 
                 # Rectangle coordinates
                 x = int(center_x - w / 1.8)
-                y = int(center_y - h / 1.8)
-                
+                y = int( center_y - h / 1.8 )
                 boxes.append([x, y, w, h])
                 confidences.append(float(confidence))
                 class_ids.append(class_id)
 
     indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.4, 0.3)
-    
-    for i in range(len(boxes)):
+
+    # remove trailing whitespace
+    for i, box in enumerate(boxes):
         if i in indexes:
             x, y, w, h = boxes[i]
-            label = str(classes[class_ids[i]])
+            LABEL = str(classes[class_ids[i]])
             confidence = confidences[i]
             color = colors[class_ids[i]]
             cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
-            cv2.putText(frame, label + " " + str(round(confidence, 2)), (x, y + 30), font, 2, color, 2)
+            cv2.putText(frame, LABEL + " " + str(round(confidence, 2)), (x, y + 30), font, 2, color, 2)
 
     elapsed_time = time.time() - starting_time
-    fps = frame_id / elapsed_time
+    fps = FRAME_ID / elapsed_time
     cv2.putText(frame, "FPS: " + str(round(fps, 2)), (10, 50), font, 2, (0, 0, 0), 3)
     cv2.imshow("Image", frame)
     key = cv2.waitKey(1)
